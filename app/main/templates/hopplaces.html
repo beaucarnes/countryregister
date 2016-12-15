@@ -1,0 +1,66 @@
+<ion-view class="places-view">
+  <ion-nav-title>{{ hopTitle }}</ion-nav-title>
+  <ion-nav-buttons side="right">
+    <button class="button button-icon" ng-disabled="places.length === 0"
+    ng-click="navigateToMap()">
+      <i class="icon ion-map"></i>
+    </button>
+    </ion-nav-buttons>
+  <ion-content>
+    <div class="center padding" ng-if="showErrorView()"
+      ng-include="'main/templates/error-view.html'">
+    </div>
+    <div class="center padding" ng-if="showEmptyView()"
+      ng-include="'main/templates/empty-view.html'">
+    </div>
+
+    <ion-refresher pulling-text="{{ 'loadingText' | translate }}"
+      on-refresh="onReload()"></ion-refresher>
+    <div class="card" ng-if="showPlaces()">
+      <div class="item item-divider" ng-class="{'item-balanced': isComplete}">
+        You have visited {{totalVisits}} of {{places.length}} shops!
+      </div>
+      <div class="item item-text-wrap">
+        <span ng-if="isComplete">
+          You have completed and submitted this Shop Hop! We will be contacting you using the e-mail listed in your profile.
+        </span>
+
+        <button type="button"
+          class="button button-block button-large button-{{theme}}"
+          ng-click="onCompleteHop()" ng-if="totalVisits === places.length && !isComplete">
+          Submit completed Shop Hop!
+        </button>
+
+        <span ng-if="totalVisits !== places.length">
+         Visit them all and there will be a button here to complete the Shop Hop.
+        </span>
+
+      </div>
+    </div>
+  	<div class="list" ng-if="showPlaces()">
+	    <a ng-class="{highlight: hopVisit[$index]}" class="item item-thumbnail-left item-button-right {{theme}}"
+      href="#/app/place/{{place.id}}" ng-repeat="place in places" bindonce>
+	      <img class="animated fadeIn" ng-src="main/assets/images/placeholder.png"
+        actual-src="{{ place.imageThumb.url() }}">
+	      <h2 bo-bind="$index + 1 + '. ' + place.title"></h2>
+	      <p bo-text="place.description"></p>
+        <h3 ng-if="hopVisit[$index]" class="italic"><i class="icon ion-android-walk {{theme}}"></i> You've hopped here!</h3>
+        <rating ng-if="place.rating" ng-model="place.rating" max="maxRating">
+        </rating>
+        <button class="button button-clear">
+          <span class="item-note {{ theme }}">
+            {{ place.getDistance(params.location) }}{{ storage.unit }}
+          </span>
+        </button>
+	    </a>
+  	</div>
+
+    <ion-infinite-scroll
+      on-infinite="onLoadMore()"
+      ng-if="moreDataCanBeLoaded()"
+      spinner
+      distance="1%">
+    </ion-infinite-scroll>
+
+  </ion-content>
+</ion-view>

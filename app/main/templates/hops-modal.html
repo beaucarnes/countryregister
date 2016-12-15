@@ -1,0 +1,18 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeHopsModal()">
+        {{ "closeText" | translate }}
+      </button>
+    </div>
+    <h1 class="title">{{ "hopsTitle" | translate }}</h1>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+      <ion-item class="item {{ theme }}" ng-repeat="hop in hops"
+      ng-click="onHopSelected(hop)" bindonce>
+        <h2 bo-bind="hop.title"></h2>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-modal-view>

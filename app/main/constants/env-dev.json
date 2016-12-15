@@ -1,0 +1,28 @@
+{
+
+  "parse": {
+  	"appId": "aSTUzCu7ybqk0gCkbNb7",
+    "serverUrl": "https://countryregister.herokuapp.com/parse"
+  },
+
+	"push": {
+		"appId": "58997-1C284",
+		"googleProjectNumber": "234180679489"
+	},
+
+  "admob": {
+		"interstitialForAndroid": "ca-app-pub-3330283737640538/8821079801",
+		"interstitialForiOS": "ca-app-pub-3330283737640538/2774546202",
+    "bannerId": "ca-app-pub-3330283737640538/4251279408"
+	},
+
+	"gaTrackingId": "UA-83943661-1",
+
+	"theme": "positive",
+
+	"unit": "mi",
+
+  "mapType": "normal",
+
+	"statusBarColor": "#1b68ea"
+}

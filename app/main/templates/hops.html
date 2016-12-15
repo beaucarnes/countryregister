@@ -1,0 +1,23 @@
+<ion-view view-title="Shop Hops">
+  <ion-content>
+    <div class="padding center" ng-if="showErrorView()"
+      ng-include="'main/templates/error-view.html'"></div>
+    <div class="padding center" ng-if="showEmptyView()"
+      ng-include="'main/templates/empty-hops.html'">
+    </div>
+    <ion-refresher
+    pulling-text="{{ 'loadingText' | translate }}"
+    on-refresh="onReload()"></ion-refresher>
+    <div ng-if="showHops()" ng-repeat="hop in hops">
+	    <div class="row row-hop">
+	      <div class="col">
+	        <a href="#/app/hopplaces/{{ hop.id }}/{{hop.title}}">
+	  	      <div class="item-category animated fadeIn" style="background-image:-webkit-linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('{{ hop.image_url }}');background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('{{ hop.image_url }}')">
+	  	        <h3 class="title">{{ hop.title }}</h3>
+	  	      </div>
+        	</a>
+	      </div>
+	    </div>
+	  </div>
+  </ion-content>
+</ion-view>
