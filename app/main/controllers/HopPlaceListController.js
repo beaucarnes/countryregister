@@ -110,6 +110,21 @@ angular.module('main')
       $scope.isComplete = isComplete;
     });
   };
+  /* this takes the places array, the current index, fetches the info regarding that index,
+  *  And then does the job, then repeats the process until whole array is finished
+  */
+  var _bringPlaceAndPush = function (placesArray, currentIndex) {
+    var currPlace = placesArray[currentIndex];
+    Place.isHopVisited(currPlace.id).then(function (isHopVisited) {
+      $scope.hopVisit.push(isHopVisited);
+      if (isHopVisited) {
+        $scope.totalVisits++;
+      }
+      if (currentIndex < placesArray.length - 1) {      //repeat the process untill each array item is processed, i.e. each place
+        _bringPlaceAndPush(placesArray, ++currentIndex);  //recursion (here's the magic)
+      }
+    });
+  }
 
   var loadPlaces = function () {
 
@@ -122,12 +137,13 @@ angular.module('main')
         showEmptyView();
       } else {
         showPlaces();
-        for (var i = 0; i < places.length; i++) {
-          Place.isHopVisited(places[i].id).then(function (isHopVisited) {
-            $scope.hopVisit.push(isHopVisited)
-            if (isHopVisited) { $scope.totalVisits++;}
-          });
-        }
+        // for (var i = 0; i < places.length; i++) {  //TODO: remove the old code added by Ahsan
+        //   Place.isHopVisited(places[i].id).then(function (isHopVisited) {
+        //     $scope.hopVisit.push(isHopVisited)
+        //     if (isHopVisited) { $scope.totalVisits++;}
+        //   });
+        // }
+        _bringPlaceAndPush(places, 0); //make asynchronous calls, but in a synchronous way
       }
 
       $scope.$broadcast('scroll.infiniteScrollComplete');
@@ -203,7 +219,7 @@ angular.module('main')
 
       $scope.isCompleting = true;
       Hop.completeHop($stateParams.hopId).then(function (response) {
-        console.log("response.action=" + response.action);
+        console.log('response.action=' + response.action);
         if (response.action === 'complete') {
           $scope.isComplete = true;
         } else {
