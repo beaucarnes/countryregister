@@ -203,7 +203,6 @@ angular.module('main')
 
       $scope.isCompleting = true;
       Hop.completeHop($stateParams.hopId).then(function (response) {
-        console.log("response.action=" + response.action);
         if (response.action === 'complete') {
           $scope.isComplete = true;
         } else {
