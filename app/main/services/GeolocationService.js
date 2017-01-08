@@ -7,10 +7,12 @@ angular.module('main')
 
     function onCurrentPositionResolved (position) {
       deferred.resolve(position);
+      console.log('success %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
     }
 
     function onCurrentPositionFailedToResolve (error) {
       deferred.reject(error);
+      console.log('error !!!!!!!!!!!!!!!!!!!!!!!!!!!' + error)
     }
 
     $ionicPlatform.ready(function () {

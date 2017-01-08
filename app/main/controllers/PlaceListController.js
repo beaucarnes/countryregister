@@ -182,14 +182,14 @@ angular.module('main')
     }, function (error) {
       $scope.params.location = null;
 
-      var errorMessage;
+      //var errorMessage;
 
-      if (error.code === 1 || error.code === 3) {
-        errorMessage = trans.errorGpsDisabledText;
-      } else {
-        errorMessage = trans.errorLocationMissingText;
-      }
-      Dialog.alert(errorMessage);
+      // if (error.code === 1 || error.code === 3) {
+      //   errorMessage = trans.errorGpsDisabledText;
+      // } else {
+      //   errorMessage = trans.errorLocationMissingText;
+      // }
+      Dialog.alert(error);
 
       showErrorView();
       $scope.$broadcast('scroll.refreshComplete');
