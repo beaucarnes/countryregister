@@ -92,6 +92,10 @@
         <variable name="APP_ID" value="1410571792290992" />
         <variable name="APP_NAME" value="The Country Register" />
     </plugin>
+    <plugin name="cordova-plugin-googlemaps" spec="https://github.com/phonegap-googlemaps-plugin/cordova-plugin-googlemaps">
+        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyBRegkVmqC1egGvIpUX2sMmx8d5fpOHV9A" />
+        <variable name="API_KEY_FOR_IOS" value="AIzaSyC4aANeR67Z0ENwUrOFZmVwJx_9z3yObQU" />
+    </plugin>
     <plugin name="cordova-plugin-geolocation" spec="~2.4.1">
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" " />
     </plugin>

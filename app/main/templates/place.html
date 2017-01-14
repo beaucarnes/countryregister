@@ -45,7 +45,7 @@
  
           </button>
           <a class="item {{theme}}" ng-if="isHopVisited && place.hop" ng-click="onHopVisitPlace()">You have been here on a Shop Hop!</a>
-          <a class="item {{theme}}" ng-if="isVisited && !isHopVisited" ng-click="onVisitPlace()">You have been here before!</a>
+          <a class="item {{theme}}" ng-if="isVisited && !isHopVisited">You have been here before!</a>
         </div>
       </div>
 
@@ -102,12 +102,6 @@
           ng-if="place.website && place.website !== 'http://'">
           <i class="icon ion-ios-world {{theme}}"></i>
           {{ "openWebsiteText" | translate }}
-          <i class="icon ion-chevron-right {{theme}}"></i>
-        </a>
-        <a ng-click="openUrl(place.website)" class="item item-icon-left item-icon-right"
-          ng-if="place.getDistance(params.location) < 0.2">
-          <i class="icon ion-location {{theme}}"></i>
-          You are here! Check in.
           <i class="icon ion-chevron-right {{theme}}"></i>
         </a>
       </div>
