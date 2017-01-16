@@ -15,11 +15,11 @@ angular.module('main')
       'googleProjectNumber': '234180679489'
     },
     'admob': {
-      'interstitialForAndroid': 'ca-app-pub-3330283737640538/8821079801',
-      'interstitialForiOS': 'ca-app-pub-3330283737640538/2774546202',
-      'bannerId': 'ca-app-pub-3330283737640538/4251279408'
+      'interstitialForAndroid': 'ca-app-pub-6514628349426003/9751577774',
+      'interstitialForiOS': 'ca-app-pub-6514628349426003/3565443379',
+      'bannerId': 'ca-app-pub-6514628349426003/9611976971'
     },
-    'gaTrackingId': 'UA-83943661-1',
+    'gaTrackingId': 'UA-90403576-1',
     'theme': 'positive',
     'unit': 'mi',
     'mapType': 'normal',

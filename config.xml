@@ -16,7 +16,7 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <preference name="AutoHideSplashScreen" value="true" />
-    <preference name="SplashScreenDelay" value="3000" />
+    <preference name="SplashScreenDelay" value="4000" />
     <preference name="ShowSplashScreenSpinner" value="false" />
     <preference name="FadeSplashScreen" value="true" />
     <preference name="FadeSplashScreenDuration" value="500" />
@@ -93,8 +93,8 @@
         <variable name="APP_NAME" value="The Country Register" />
     </plugin>
     <plugin name="cordova-plugin-googlemaps" spec="https://github.com/phonegap-googlemaps-plugin/cordova-plugin-googlemaps">
-        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyBRegkVmqC1egGvIpUX2sMmx8d5fpOHV9A" />
-        <variable name="API_KEY_FOR_IOS" value="AIzaSyC4aANeR67Z0ENwUrOFZmVwJx_9z3yObQU" />
+        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyDiwe-1yAruE2WTTBEe79Es2p6e5QXFLyo" />
+        <variable name="API_KEY_FOR_IOS" value="AIzaSyB7l4ieSkavpCq51SAYihbvw3bVcVgoOZ0" />
     </plugin>
     <plugin name="cordova-plugin-geolocation" spec="~2.4.1">
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" " />
@@ -106,4 +106,7 @@
     </plugin>
     <plugin name="cordova-plugin-inappbrowser" spec="~1.6.1" />
     <plugin name="cordova-plugin-google-analytics" spec="~1.7.4" />
+    <plugin name="cordova-plugin-geolocation" spec="~2.4.1">
+        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" " />
+    </plugin>
 </widget>

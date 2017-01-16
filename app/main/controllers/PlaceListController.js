@@ -12,7 +12,7 @@ angular.module('main')
 
   $scope.params = {
     location: null,
-    categoryId: $stateParams.categoryId,
+    categoryId: ($stateParams.categoryTitle === 'All') ? null : $stateParams.categoryId,
     distance: 100.00,
     page: 0,
     search: '',
@@ -27,14 +27,12 @@ angular.module('main')
       trans = translations;
 
       $scope.distances = [
-        { val: 0.20, text: translations.twoBlocksText },
-        { val: 0.60, text: translations.sixBlocksText },
-        { val: 1.00, text: '1 ' + $scope.storage.unit },
         { val: 5.00, text: '5 ' + $scope.storage.unit },
         { val: 10.00, text: '10 ' + $scope.storage.unit },
         { val: 25.00, text: '25 ' + $scope.storage.unit },
         { val: 50.00, text: '50 ' + $scope.storage.unit },
         { val: 100.00, text: '100 ' + $scope.storage.unit },
+        { val: 300.00, text: '300 ' + $scope.storage.unit },
       ];
     });
 
